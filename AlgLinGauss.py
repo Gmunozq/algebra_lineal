@@ -1,11 +1,19 @@
+#comentarios y sugerencias gmunoz@udistrital.edu.co
 
+#funciona en Python o en Jython
+#Los programas requieren python o jython
+#
+#Descargar los dos archivos AlgLinMat.py y AlgLinGauss.py
+
+#En Python o Jython cambiar el directorio a la carpeta de los archivos
+#import os
+#os.chdir('/dir1/dir2/')
+
+#Ejecutar
+#import AlgLinGauss
 
 #reducciOn por Gauss-Jordan
 #\item Vaya a la columna no cero extrema izquierda.
-
-
-
-
 #\item Si el primer renglOn tiene un cero en la columna del paso (1), intercAmbielo con uno que tenga un elemento no cero en la misma columna.
 #\item Obtenga ceros abajo del elemento delantero, sumando mu*ltiplos adecuados del renglo*n superior a los renglones debajo de e*l.
 #\item Cubra el renglo*n superior y repita el mismo proceso comenzando por el paso (1) aplicado a la sub-matriz restante. Repita este proceso con el resto de los renglones.
@@ -78,7 +86,7 @@ sugerencia=0
 B=A
 (Am,An)=A.size()
 while repetir:
-    operacion=raw_input('Escriba la operacio*n entre renglones\n operacion=')
+    operacion=raw_input('Escriba la operacio*n entre renglones\n operacion = ')
     try:
         C=B
         B=A.op(operacion)

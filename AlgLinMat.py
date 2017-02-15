@@ -4,7 +4,7 @@
 #   import sys
 #   sys.path.append("/mnt/sdcard/Download")
 #   from AlgLinMat import *
-
+#comentarios y sugerencias gmunoz@udistrital.edu.co
 
 import sys
 import copy
@@ -263,13 +263,13 @@ class matriz:# es una columna de renglones
     
   def op(self,s):
     s=s.lower()
-    #print(s)
+    print(s)
     def interpretaRenglon(s1):
         s=s1.replace(' ','')
-        #print("interpretando "+s)
+        print("interpretando "+s)
         d=s.find("r")
         if d==-1:
-            raise ValueError("fala la 'r'. Error en "+s)
+            raise ValueError("falta la 'r'. Error en "+s)
         elif d==0:
             k=1
         else:
@@ -291,7 +291,9 @@ class matriz:# es una columna de renglones
     (size,z)=self.size()
     m=matriz.identidad(size,size,"no_mostrar")
     d=s.find("<->")
+    print 'va 1'
     if d!=-1:
+        print 'van 2'
         (k1,a1)=interpretaRenglon(s[:d])
         (k2,a2)=interpretaRenglon(s[d+3:])
         if (k1 != 1) or (k2 != 1):
@@ -303,14 +305,18 @@ class matriz:# es una columna de renglones
         m[a2,a1]=1    
         #print(str(m))
     else:
+        print 'van 3'
         d=s.find("->")
         if d==-1:
             raise ValueError("no se encontrO ni '->' ni '<->'. Error en "+s)
         else:
+            print 'van 4'
             (k2,a2)=interpretaRenglon(s[d+2:])
             e=s[:d].find("+")
-            f=s[:d].find("-")
+            f=s[:d].rfind("-")
+            print 'van4.5 ',d,s,e,f
             if e!=-1:
+                print 'van 5'
                 (k11,a11)=interpretaRenglon(s[:e])
                 (k12,a12)=interpretaRenglon(s[e+1:d])
                 if (a11==a2) and (a12==a2):
@@ -330,10 +336,12 @@ class matriz:# es una columna de renglones
                 else:#if (a11!=a2) and (a12!=a2):
                     raise ValueError("el renglOn destino y un origen deben coincidir. Error en "+s)
             elif f!=-1:
+                print 'van 6'
                 c=s[:d].count('r')
                 if c==0:
-                    raise ValueError("faltan 'R' en "+s[:d])
+                    raise ValueError("falta 'r' en "+s[:d])
                 elif c==2:
+                    print 'van 7'
                     (k11,a11)=interpretaRenglon(s[:f])
                     (k12,a12)=interpretaRenglon(s[f+1:d])
                     if (a11==a2) and (a12==a2):
@@ -354,6 +362,7 @@ class matriz:# es una columna de renglones
                     else:#if (a11!=a2) and (a12!=a2):
                         raise ValueError("el renglOn destino y un origen deben coincidir. Error en "+s)
                 elif c==1:
+                    print 'van 8'
                     (k1,a1)=interpretaRenglon(s[:d])
                     if a1 != a2 :
                         raise ValueError("el renglOn destino y el origen deben coincidir. Error en "+s)
@@ -364,6 +373,7 @@ class matriz:# es una columna de renglones
                 else:
                     raise ValueError("se operan mAximo dos renglones. Error en "+s)
             else:
+                print 'van 9'
                 (k1,a1)=interpretaRenglon(s[:d])
                 if a1 != a2 :
                     raise ValueError("el renglOn destino y el origen deben coincidir. Error en "+s)
